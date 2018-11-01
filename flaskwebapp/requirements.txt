@@ -2,7 +2,6 @@ pandas
 sklearn
 Flask
 numpy
-re
 scipy
 filelock
 json
