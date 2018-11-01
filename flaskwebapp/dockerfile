@@ -10,7 +10,7 @@ ADD . /code/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         openmpi-bin \
-        python \
+        python3.6 \
         python-dev \
         python-setuptools \
         python-pip \
