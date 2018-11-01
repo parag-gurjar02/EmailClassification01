@@ -6,7 +6,6 @@ scipy
 filelock
 json-logging-py==0.2
 requests
-hashlib
 pyjarowinkler
 itertools
 string
