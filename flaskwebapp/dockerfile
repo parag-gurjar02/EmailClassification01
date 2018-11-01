@@ -22,4 +22,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     
 
 EXPOSE 88
-#CMD ["supervisord", "-c", "/etc/supervisord.conf"]
+#CMD ["supervisord", "-c", "/etc/supervisord.conf"]\
+CMD ["python", "flask_server.py"] 
