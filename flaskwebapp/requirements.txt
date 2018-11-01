@@ -7,7 +7,3 @@ filelock
 json-logging-py==0.2
 requests
 pyjarowinkler
-string
-operator
-os
-nltk.stem.snowball
