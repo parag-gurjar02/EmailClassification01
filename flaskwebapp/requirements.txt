@@ -7,7 +7,6 @@ filelock
 json-logging-py==0.2
 requests
 pyjarowinkler
-itertools
 string
 operator
 os
