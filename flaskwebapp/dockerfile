@@ -8,7 +8,7 @@ WORKDIR /code
 ADD . /code/
 #ADD etc /etc
 
-RUN apt-get install python3.6
+RUN apt-get install && apt-get install python3.6
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         openmpi-bin \       
