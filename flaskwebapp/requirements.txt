@@ -7,3 +7,4 @@ filelock
 json-logging-py==0.2
 requests
 pyjarowinkler
+nltk
