@@ -47,10 +47,9 @@ def run(input_df):
     
 #    prediction1 = model.best_estimator_.predict(input_df)
     prediction = model.predict_proba(input_df)
-    print(prediction[0])
+    print prediction[0]
 #    print(dict(zip(classes,prediction[0])))
-#    predicted_df=pd.DataFrame(prediction)
-    
+#    predicted_df=pd.DataFrame(prediction)    
 #    json_df=predicted_df.to_dict(orient='list')
     
     return dict(zip(classes,prediction[0]))
