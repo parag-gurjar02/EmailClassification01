@@ -5,8 +5,8 @@ metadata:
 spec:
  containers:
    - name: model-api
-     image: crrq51278013.azurecr.io/model-api:147
+     image: crrq51278013.azurecr.io/model-api:148
      ports:
-       - containerPort: 88
+       - containerPort: 89
  imagePullSecrets:
    - name: imageclassificationappdemosecret
