@@ -14,9 +14,9 @@ spec:
     spec: 
       containers: 
       - name: model-api 
-        image: crrq51278013.azurecr.io/model-api:210
+        image: crrq51278013.azurecr.io/model-api:212
         ports: 
-        - containerPort: 88
+        - containerPort: 5000
 ---
 apiVersion: v1
 kind: Service	
@@ -26,6 +26,6 @@ spec:
   type: LoadBalancer	
   ports:	
   - port: 85
-    targetPort: 88	
+    targetPort: 5000	
   selector:	
     app: emailclassificationapp
