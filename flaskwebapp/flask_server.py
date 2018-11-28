@@ -21,7 +21,8 @@ def apicall():
     Pandas dataframe (sent as a payload) from API Call
     """
 #    try:
-    return request.get_json()
+#    return request.get_json()
+    return 'This is Parag Gurjar! Working with Venki :)'
 # Commenting out below statements just to check responce
 #    print request.get_json()
 #    test_json = request.get_json()    
