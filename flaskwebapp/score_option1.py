@@ -97,11 +97,17 @@ def trigger(validation_file):
     validation.dropna(subset=['Description'], inplace=True)
     validation['Description'].replace(to_replace=re.compile('[x]{2,}',flags = re.IGNORECASE),
     value=' ',inplace=True,regex=True)   
-    
-    init()
-    input1 = validation[['Subject','Description']]
-    json_df=run(input1)
-    return json_df
+    #init()
+    #input1 = validation[['Subject','Description']]
+    #json_df=run(input1)
+    #return json_df
+    try:
+       init()
+       input1 = validation[['Subject','Description']]
+       json_df=run(input1)
+       return json_df
+    except ValueError as e:
+       return e
 ####################### Added By Parag End #############################
 '''
     # Import the logger only for Workbench runs
