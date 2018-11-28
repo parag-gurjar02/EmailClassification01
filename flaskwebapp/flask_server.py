@@ -23,16 +23,16 @@ def apicall():
 #    try:
 #    return request.get_json()
 #    return 'This is Parag Gurjar! Working with Venki :)'
-    test_json = request.get_json()
-    return jsonify(test_json)
+#    test_json = request.get_json()
+#    return jsonify(test_json)
 # Commenting out below statements just to check responce
-#    print request.get_json()
-#    test_json = request.get_json()    
-#    k=MetaData(test_json)
-#    int_res=k.getData()
-#    print '------------------------------'
-#    print int_res
-#    return jsonify(int_res)
+    print request.get_json()
+    test_json = request.get_json()    
+    k=MetaData(test_json)
+    int_res=k.getData()
+    print '------------------------------'
+    print int_res
+    return jsonify(int_res)
 
 
 # CNTK Version
