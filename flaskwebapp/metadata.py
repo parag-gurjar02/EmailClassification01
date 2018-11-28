@@ -20,21 +20,21 @@ class MetaData:
     def getData(self):
         
         final_json={}
-        final_json['modelId']=self.json_obj1.get('modelId')
-        final_json['textId']=self.json_obj1.get('textId')
+        #final_json['modelId']=self.json_obj1.get('modelId')
+        #final_json['textId']=self.json_obj1.get('textId')
         
-        classes_consolidated=[]
-        classesToPredict=self.json_obj1.get('classToPredict')
+        #classes_consolidated=[]
+        #classesToPredict=self.json_obj1.get('classToPredict')
         
-        for class_name in classesToPredict:
-            class_name_values={}
-            class_name_values['name']=class_name
-            class_name_values['values']=self.predict(class_name) #returns list
+        #for class_name in classesToPredict:
+        #    class_name_values={}
+        #    class_name_values['name']=class_name
+        #    class_name_values['values']=self.predict(class_name) #returns list
             
-            classes_consolidated.append(class_name_values)
+        #    classes_consolidated.append(class_name_values)
             
-        final_json['classes']=classes_consolidated
-        return final_json
+        #final_json['classes']=classes_consolidated
+        return  score_option1.trigger(self.json_obj1) #final_json
     
     def category(self):
         
