@@ -26,3 +26,7 @@ az storage blob download --container-name $container_name --name $blob_name1 --f
 az storage blob list --container-name $container_name --output table
 
 echo "Download of model file complete : " $blob_name1
+
+echo "Checking what is inside  flaskwebapp !!"
+cd flaskwebapp
+echo $(ls)
