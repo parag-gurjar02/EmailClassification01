@@ -22,7 +22,9 @@ def apicall():
     """
 #    try:
 #    return request.get_json()
-    return 'This is Parag Gurjar! Working with Venki :)'
+#    return 'This is Parag Gurjar! Working with Venki :)'
+    test_json = request.get_json()
+    return jsonify(test_json)
 # Commenting out below statements just to check responce
 #    print request.get_json()
 #    test_json = request.get_json()    
