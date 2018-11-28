@@ -25,7 +25,7 @@ def init():
     #input_dump_file_location = 'D:/Parag/Projects/AINADEL/ML_experiment1/MLExperiment1/model_pkl/email_classification_multiclass_approach1_obj.pkl'
 #    input_dump_file_location = './csv/email_classification_multiclass_approach1_obj.pkl'
     input_dump_file_location = 'email_classification_multiclass_approach1_obj.pkl'
-    with open(input_dump_file_location,'rb') as f:  # Python 3: open(..., 'rb')
+    with open(input_dump_file_location,'r') as f:  # Python 3: open(..., 'rb')
        d1_gs_clf, d1_gs_clf_estimator, \
        d1_gs_clf_svm, d1_gs_clf_svm_estimator = pickle.load(f)
 ####################### Added By Parag End #############################
