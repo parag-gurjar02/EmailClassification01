@@ -73,4 +73,3 @@ class MetaData:
         func = switcher.get(argument, lambda: "Invalid class")
     
         return func
-     
