@@ -42,7 +42,7 @@ def apicall():
 
 @app.route("/")
 def healthy():
-    print '------------------------------'
+    #print '------------------------------'
     return "Healthy"
 
 if __name__ == '__main__':
