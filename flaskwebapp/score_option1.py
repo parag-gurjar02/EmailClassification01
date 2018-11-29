@@ -6,6 +6,15 @@
 #from azureml.assets import get_local_path
 
 ####################### Added By Parag Start#############################
+import logging
+
+LOG_FILENAME = 'log_11292018.log'
+logging.basicConfig(filename=LOG_FILENAME,
+                                format  = "%(asctime)s - %(message)s",
+                                level=logging.INFO,
+                                filemode='w')
+logger=logging.getLogger()
+
 import pandas as pd
 import numpy as np
 import re
@@ -30,6 +39,7 @@ def init():
        d1_gs_clf_svm, d1_gs_clf_svm_estimator = pickle.load(f)
 ####################### Added By Parag End #############################
     # Load model using appropriate library and function
+    logger.info('loaded pickle file')
     global model
     # model = model_load_function(local_path)
     model = d1_gs_clf_svm
@@ -47,11 +57,12 @@ def run(input_df):
     
 #    prediction1 = model.best_estimator_.predict(input_df)
     prediction = model.predict_proba(input_df)
+    logger.info('values predicted and the values are')
     print prediction[0]
 #    print(dict(zip(classes,prediction[0])))
 #    predicted_df=pd.DataFrame(prediction)    
 #    json_df=predicted_df.to_dict(orient='list')
-    
+    logger.info(dict(zip(classes,prediction[0])))
     return dict(zip(classes,prediction[0]))
 '''
 def generate_api_schema():
@@ -98,9 +109,20 @@ def trigger(validation_file):
     validation['Description'].replace(to_replace=re.compile('[x]{2,}',flags = re.IGNORECASE),
     value=' ',inplace=True,regex=True)   
     
-    init()
+    logger.info('before loading pickle file')
+    try:
+        init()
+    except Exception as e:
+        logger.info('exception occured in loading pickle file')
+        logger.exception(e)
     input1 = validation[['Subject','Description']]
-    json_df=run(input1)
+    json_df={}
+    try:
+        json_df=run(input1)
+    except Exception as e:
+        logger.exception(e)
+        logger.info('exception at run()')
+    logger.info(json_df)
     return json_df
 ####################### Added By Parag End #############################
 '''
