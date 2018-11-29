@@ -4,6 +4,13 @@ Created on Mon Sep 24 20:00:18 2018
 
 @author: venkatesh.s49
 """
+import logging
+LOG_FILENAME = 'log_11292018.log' 
+logging.basicConfig(filename=LOG_FILENAME,
+                                format  = "%(asctime)s - %(message)s",
+                                level=logging.INFO,
+                                filemode='w')
+logger=logging.getLogger() 
 
 import os
 import pandas as pd
@@ -15,6 +22,7 @@ from metadata import MetaData
 from flask import Response
 app = Flask(__name__)
 
+
 @app.route('/api/model/classify', methods=['POST'])
 def apicall():
     """API Call
@@ -24,7 +32,8 @@ def apicall():
 #    try:
     print request.get_json()
     test_json = request.get_json()
-    
+    logger.info("input json object loaded")
+    logger.info(test_json)
     k=MetaData(test_json)
     int_res=k.getData()
     print '------------------------------'
