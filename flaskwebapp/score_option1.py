@@ -76,11 +76,13 @@ def trigger(validation_file):
 #    print(validation_file)
     
     df=pd.DataFrame()
-    test_json={}    
+    test_json={}
+    
     test_json['Subject']=validation_file['Subject']
     test_json['Description']=validation_file['textContent']
 #    print(test_json)
-    df=df.append(test_json,ignore_index=True,)    
+    df=df.append(test_json,ignore_index=True,)
+    
     validation =df  #text in column 1, classifier in column 2.
     ## Replacing spaces with Nan in subject column, dropping all rows with null subject and replacing 
     ## multiple occurance of X with space.
@@ -88,20 +90,18 @@ def trigger(validation_file):
     validation.dropna(subset=['Subject'], inplace=True)
     validation['Subject'].replace(to_replace=re.compile('[x]{2,}',flags = re.IGNORECASE),
     value=' ',inplace=True,regex=True)
+
     ## Replacing spaces with Nan in description column, dropping all rows with null subject and replacing 
     ## multiple occurance of X with space.
     validation['Description'].replace(' ', np.nan, inplace=True)
     validation.dropna(subset=['Description'], inplace=True)
     validation['Description'].replace(to_replace=re.compile('[x]{2,}',flags = re.IGNORECASE),
     value=' ',inplace=True,regex=True)   
-    #init()
-    #input1 = validation[['Subject','Description']]
-    #json_df=run(input1)
-    #return json_df    
+    
     init()
     input1 = validation[['Subject','Description']]
     json_df=run(input1)
-    return json_df    
+    return json_df
 ####################### Added By Parag End #############################
 '''
     # Import the logger only for Workbench runs
@@ -121,7 +121,4 @@ def trigger(validation_file):
     input = "{}"
     result = run(input)
     logger.log("Result",result)
-'''
-    
-
-
+'''   
