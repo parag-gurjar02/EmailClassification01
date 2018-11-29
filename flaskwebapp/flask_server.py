@@ -17,17 +17,14 @@ app = Flask(__name__)
 
 @app.route('/api/model/classify', methods=['POST'])
 def apicall():
-    """API Call 
+    """API Call
+
     Pandas dataframe (sent as a payload) from API Call
     """
 #    try:
-#    return request.get_json()
-#    return 'This is Parag Gurjar! Working with Venki :)'
-#    test_json = request.get_json()
-#    return jsonify(test_json)
-# Commenting out below statements just to check responce
     print request.get_json()
-    test_json = request.get_json()    
+    test_json = request.get_json()
+    
     k=MetaData(test_json)
     int_res=k.getData()
     print '------------------------------'
@@ -42,7 +39,6 @@ def apicall():
 
 @app.route("/")
 def healthy():
-    #print '------------------------------'
     return "Healthy"
 
 if __name__ == '__main__':
