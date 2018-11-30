@@ -1,13 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Feb 28 15:23:34 2018
 
-@author: sayan_banerjee03
-"""
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.base import BaseEstimator, TransformerMixin
-from nltk.stem.snowball import SnowballStemmer
+#from nltk.stem.snowball import SnowballStemmer ## 
 import numpy as np
 import pandas as pd
 import re
@@ -15,22 +11,24 @@ import re
 import string
 from scipy.sparse import lil_matrix, find
 import itertools
-from pyjarowinkler import distance
+# from pyjarowinkler import distance Commented as this is not used.
 from sklearn.feature_selection import SelectPercentile
 import os.path
 import hashlib
 import pickle
-import filelock
+#import filelock
 from io import StringIO
 
 
 
-stemmer = SnowballStemmer("english", ignore_stopwords=True)
+#stemmer = SnowballStemmer("english", ignore_stopwords=True) ##
 
-class StemmedCountVectorizer(CountVectorizer):
-    def build_analyzer(self):
-        analyzer = super(StemmedCountVectorizer, self).build_analyzer()
-        return lambda doc: ([stemmer.stem(w) for w in analyzer(doc)])
+
+#class StemmedCountVectorizer(CountVectorizer): ##
+#    def build_analyzer(self): ##
+#        analyzer = super(StemmedCountVectorizer, self).build_analyzer() ##
+#        return lambda doc: ([stemmer.stem(w) for w in analyzer(doc)]) ##
+
 
 class ItemSelector(BaseEstimator, TransformerMixin):
 
@@ -166,10 +164,6 @@ class PunctTransformer(BaseEstimator, TransformerMixin):
         punct_text_col = text_col.replace(to_replace=re.compile(regexp,
                                                                 flags = re.IGNORECASE),
                                              value='',inplace=False,regex=True)
-        
-        punct_text_col = punct_text_col.replace(to_replace=re.compile('\n+|\r+|\t+',
-                                                                flags = re.IGNORECASE),
-                                             value=' ',inplace=False,regex=True)
         return punct_text_col
         
     def get_feature_names(self):
@@ -329,7 +323,7 @@ def ClassDiscriminatingMeasureCS(X,y):
     #print((CDM_tk.A1).shape)
     return  CDM_tk.A1
 
-def get_sim_context_tk_w(terms,
+'''def get_sim_context_tk_w(terms,
                        count_vect_obj,
                        raw_document,
                        max_window = 3,
@@ -387,7 +381,7 @@ def get_sim_context_tk_w(terms,
         except lock.Timeout:
             print('update_cache timeout' + cache_file_path)
     #CDM_tk = ClassDiscriminatingMeasure(ret_mat,y,'sum')
-    return ret_mat
+    return ret_mat'''
 
 
 class ContextSimilarityBasedFeatureSelection(CountVectorizer):
