@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: model-api 
-        image: crrq51278013.azurecr.io/model-api:257
+        image: crrq51278013.azurecr.io/model-api:258
         ports: 
         - containerPort: 5000
 ---
@@ -29,4 +29,3 @@ spec:
     targetPort: 5000	
   selector:	
     app: emailclassificationapp
-############################
